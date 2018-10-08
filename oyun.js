@@ -22,7 +22,7 @@ engel[0] = {
     width : 20,
     height : Math.floor(Math.random() * canvas.height - 40)
 };
-
+               
 document.addEventListener("keydown", function() { 
     topY -=10;
    
