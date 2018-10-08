@@ -24,7 +24,7 @@ engel[0] = {
 };
                
 document.addEventListener("keydown", function() { 
-    topY -=10;
+    topY -=25;
    
 });   
 
