@@ -10,13 +10,16 @@ const c = canvas.getContext('2d');
 
 let startBtn = document.getElementById('startBtn');
 
-
 let aralik = 70; 
 let yercekimi = 1.5;
 let topX = canvas.width/4;
 let topY = canvas.height/2;
 let topRadius = 5; 
 let skor = 0;
+
+let bg = new Image();
+bg.src = 'image/bg.png';
+
 
 let scorSesi = new Audio();
 scorSesi.src = 'audio/scorSesi.wav';
@@ -46,10 +49,12 @@ document.addEventListener("keyup", function() {
 
 function draw() {
 
-    startBtn.style.display = 'none';      
-
+    startBtn.style.display = 'none';   
+    
+    
     c.clearRect(0, 0, canvas.width, canvas.height);
-
+    
+    c.drawImage(bg, 0, 0, canvas.width, canvas.height);
     for(let i = 0; i < engel.length; i++) {
         c.fillStyle = 'black';
         c.fillRect(engel[i].x, engel[i].y, engel[i].width, engel[i].height);
