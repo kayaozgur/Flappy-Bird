@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flapy Bird</title>
+    <style>
+        #startBtn {
+            position: absolute;
+                border-radius: 10px;
+                font-size: 20px;
+                color: white;
+                background-color: green;
+                top: 150px;
+                left: 237px;
+                width: 150px;
+                height: 40px;
+        }
+    </style>
 </head>
 <body onload="oyun()" >
     <canvas></canvas>
+    <button id="startBtn" onclick="oyun()">Yeniden Başla</button>
     <script src="oyun.js"></script>
 </body>
 </html>

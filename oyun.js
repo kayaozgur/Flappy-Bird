@@ -8,6 +8,9 @@ canvas.style.border = 'solid';
 
 const c = canvas.getContext('2d');
 
+let startBtn = document.getElementById('startBtn');
+
+
 let aralik = 70; 
 let yercekimi = 1.5;
 let topX = canvas.width/4;
@@ -19,7 +22,7 @@ let scorSesi = new Audio();
 scorSesi.src = 'audio/scorSesi.wav';
 
 let carpmaSesi = new Audio();
-carpmaSesi.src = 'audio/carpma.wav';
+carpmaSesi.src = 'audio/dead.mp3';
 
 let engel = [];
 
@@ -43,7 +46,8 @@ document.addEventListener("keyup", function() {
 
 function draw() {
 
- 
+    startBtn.style.display = 'none';      
+
     c.clearRect(0, 0, canvas.width, canvas.height);
 
     for(let i = 0; i < engel.length; i++) {
@@ -67,7 +71,8 @@ function draw() {
             topX + topRadius >= engel[i].x && topX - topRadius <= engel[i].x + engel[i].width && topY + topRadius >= engel[i].y + aralik+ engel[i].height ||
             topY - topRadius <= 0 || topY + topRadius >= canvas.height) {
                 carpmaSesi.play();
-                location.reload();
+                clearInterval(game);
+                startBtn.style.display = 'initial';
             }
             
             if(engel[i].x == topX - engel[i].width - topRadius -5) {
@@ -86,11 +91,10 @@ function draw() {
     c.fillStyle = 'black';
     c.font = '20px Arial';
     c.fillText('Skor : ' + skor, 10, 20);
-
-
-    requestAnimationFrame(draw);
+  
 }
 
-draw();
+let game = setInterval(draw, 20);
+
 
 }
