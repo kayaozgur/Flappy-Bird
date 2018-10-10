@@ -94,7 +94,7 @@ function draw() {
   
 }
 
-let game = setInterval(draw, 20);
+let game = setInterval(draw, 1000 / 60);
 
 
 }
