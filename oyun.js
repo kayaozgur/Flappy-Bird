@@ -8,11 +8,11 @@ canvas.style.border = 'solid';
 
 const c = canvas.getContext('2d');
 
-let aralik = 60; 
+let aralik = 70; 
 let yercekimi = 1.5;
 let topX = canvas.width/4;
 let topY = canvas.height/2;
-let topRadius = 10; 
+let topRadius = 5; 
 let skor = 0;
 
 let engel = [];
@@ -25,10 +25,13 @@ engel[0] = {
 };
                
 document.addEventListener("keydown", function() { 
-    yercekimi = -yercekimi;
+    yercekimi = -1.5;
    
 });   
-
+document.addEventListener("keyup", function() { 
+    yercekimi = 1;
+   
+}); 
 
 
 
@@ -52,6 +55,12 @@ function draw() {
                 width: 20,
                 height : Math.floor(Math.random() * canvas.height - 40)
             });
+        }
+
+        if(topX + topRadius >= engel[i].x && topX - topRadius <= engel[i].x + engel[i].width && topY - topRadius <= engel[i].y + engel[i].height ||
+            topX + topRadius >= engel[i].x && topX - topRadius <= engel[i].x + engel[i].width && topY + topRadius >= engel[i].y + aralik+ engel[i].height ||
+            topY - topRadius <= 0 || topY + topRadius >= canvas.height) {
+            location.reload()
         }
 
         if(engel[i].x == topX - engel[i].width - topRadius -5) {
