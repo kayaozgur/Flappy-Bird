@@ -15,6 +15,12 @@ let topY = canvas.height/2;
 let topRadius = 5; 
 let skor = 0;
 
+let scorSesi = new Audio();
+scorSesi.src = 'audio/scorSesi.wav';
+
+let carpmaSesi = new Audio();
+carpmaSesi.src = 'audio/carpma.wav';
+
 let engel = [];
 
 engel[0] = {
@@ -60,11 +66,13 @@ function draw() {
         if(topX + topRadius >= engel[i].x && topX - topRadius <= engel[i].x + engel[i].width && topY - topRadius <= engel[i].y + engel[i].height ||
             topX + topRadius >= engel[i].x && topX - topRadius <= engel[i].x + engel[i].width && topY + topRadius >= engel[i].y + aralik+ engel[i].height ||
             topY - topRadius <= 0 || topY + topRadius >= canvas.height) {
-            location.reload()
-        }
-
-        if(engel[i].x == topX - engel[i].width - topRadius -5) {
-            skor++;
+                carpmaSesi.play();
+                location.reload();
+            }
+            
+            if(engel[i].x == topX - engel[i].width - topRadius -5) {
+                skor++;
+                scorSesi.play();
         } 
     }
 
