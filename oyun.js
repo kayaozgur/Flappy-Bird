@@ -22,7 +22,7 @@ function oyun() {
     let bg = new Image();
     bg.src = 'image/bg.png';
 
-
+   
     let scorSesi = new Audio();
     scorSesi.src = 'audio/scorSesi.wav';
 
@@ -57,6 +57,7 @@ function oyun() {
         c.clearRect(0, 0, canvas.width, canvas.height);
 
         c.drawImage(bg, 0, 0, canvas.width, canvas.height);
+        
         for (let i = 0; i < engel.length; i++) {
             c.fillStyle = 'black';
             c.fillRect(engel[i].x, engel[i].y, engel[i].width, engel[i].height);
