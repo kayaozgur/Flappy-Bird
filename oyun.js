@@ -59,7 +59,7 @@ function oyun() {
         c.drawImage(bg, 0, 0, canvas.width, canvas.height);
         
         for (let i = 0; i < engel.length; i++) {
-            c.fillStyle = 'black';
+            c.fillStyle = 'green';
             c.fillRect(engel[i].x, engel[i].y, engel[i].width, engel[i].height);
             c.fillRect(engel[i].x, engel[i].y + engel[i].height + aralik, engel[i].width, canvas.height - engel[i].height - aralik);
 
@@ -101,6 +101,7 @@ function oyun() {
 
     c.beginPath();
     c.arc(topX, topY, topRadius, Math.PI * 2, false);
+    c.fillStyle = 'red';
     c.fill();
     c.stroke();
 
@@ -110,7 +111,7 @@ function oyun() {
     c.font = '20px Arial';
     c.fillText('Puan   : ' + skor, 10, 20);
     c.fillText('Seviye : ' + seviye, 10, 40);
-    c.fillText('fps : ' + fps, 10, 60);
+    // c.fillText('fps : ' + fps, 10, 60);
 
 }
 
